@@ -1,6 +1,6 @@
 # 🎵 Music Player (Java Console Application)
 
-A console-based **Music Player** application built using **Java** . The project uses a **MySQL database** (hosted via **XAMPP / phpMyAdmin**) for all persistent data — users, songs, and playlists — and supports real-time audio playback directly from the console.
+A console-based **Music Player** application built in **Java**. The project uses a **MySQL database** (hosted via **XAMPP / phpMyAdmin**) for all persistent data — users, songs, and playlists — and supports real-time audio playback directly from the console.
 
 ---
 
@@ -43,16 +43,21 @@ This application allows users to create an account, log in, browse songs, create
 ## 📂 Project Structure
 
 ```
-Music/ (package)
+MusicPlayerProject/ (root folder)
 │
-├── DatabaseConnection.java   → Handles JDBC connection to MySQL (XAMPP)
-├── music.java                 → Main app entry point, Swing GUI (Login/Create Account), menu logic
-├── MusicPlayer.java           → Core audio playback engine (play/pause/resume/next/previous)
-├── SongOperations.java        → All song & playlist database operations (CRUD)
-├── music_player_db.sql        → Exported MySQL database (schema + sample data)
-├── jl1.0.1.jar                 → JLayer library for MP3 playback
-└── mysql-connector-j-8.1.0.jar → MySQL JDBC driver for database connectivity
+├── src/
+│   └── Music/ (package)
+│       ├── DatabaseConnection.java   → Handles JDBC connection to MySQL (XAMPP)
+│       ├── music.java                 → Main app entry point, Swing GUI (Login/Create Account), menu logic
+│       ├── MusicPlayer.java           → Core audio playback engine (play/pause/resume/next/previous)
+│       └── SongOperations.java        → All song & playlist database operations (CRUD)
+│
+├── music_player_db.sql            → Exported MySQL database (schema + sample data)
+├── jl1.0.1.jar                     → JLayer library for MP3 playback (added to build path)
+└── mysql-connector-j-8.1.0.jar     → MySQL JDBC driver for database connectivity (added to build path)
 ```
+
+> All Java source files live inside the `Music` package, which sits inside the `src` folder. The two library JARs (`jl1.0.1.jar`, `mysql-connector-j-8.1.0.jar`) and the database export (`music_player_db.sql`) are kept **outside** `src`, at the project root, and are added to the project's build path separately.
 
 ---
 
@@ -85,9 +90,12 @@ The database (`music_player_db`) contains 4 main tables:
 6. Compile and run `music.java` to start the application.
 
 ---
+
+## 👨‍🎓 Note
+
 This project was built to practice:
 - Core Java (OOP, inheritance, multithreading)
 - JDBC-based database connectivity with MySQL
 - Working with external libraries (JLayer for audio, MySQL Connector for DB)
 - Real-world CRUD operations and database triggers
-- GUI development using Java Swing 
+- GUI development using Java Swing
